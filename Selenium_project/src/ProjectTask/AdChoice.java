@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
@@ -18,15 +17,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 public class AdChoice
 
 	{	
+	
 	static WebDriver driver  ;
 	static JavascriptExecutor js;
 	static XSSFWorkbook wb = new XSSFWorkbook();
@@ -39,7 +38,8 @@ public class AdChoice
 	
 public static void main(String[] args) throws IOException, InterruptedException
 	{
-	System.setProperty("webdriver.chrome.driver","C:\\Users\\eclipse-workspace\\Selenium_project\\Driver\\chromedriver.exe");//driver path
+		//System.setProperty("webdriver.chrome.driver","E:\\Eclipse\\Selenium\\Selenium_project\\Driver\\chromedriver.exe");//driver path
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		Actions a = new Actions(driver);
